@@ -1,7 +1,7 @@
-"use client";
-import React from "react";
-import SearchBox from "./searchBox";
-import ShowWeatherData from "./showWeatherData";
+'use client'
+import React from 'react'
+import SearchBox from './searchBox'
+import ShowWeatherData from './showWeatherData'
 
 export default function Home() {
   return (
@@ -9,5 +9,5 @@ export default function Home() {
       <SearchBox />
       <ShowWeatherData />
     </main>
-  );
+  )
 }

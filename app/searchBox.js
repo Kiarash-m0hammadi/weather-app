@@ -1,5 +1,5 @@
-import useCitySearchHandlers from "../utils/getCities";
-import useWeatherDataFetch from "../utils/getCityData";
+import useCitySearchHandlers from '../utils/getCities'
+import useWeatherDataFetch from '../utils/getCityData'
 
 export default function SearchBox() {
   const {
@@ -7,8 +7,8 @@ export default function SearchBox() {
     searchQuery,
     handleSearchInputChange,
     handleSearchSubmit,
-  } = useCitySearchHandlers();
-  const { fetchWeather } = useWeatherDataFetch();
+  } = useCitySearchHandlers()
+  const { fetchWeather } = useWeatherDataFetch()
   return (
     <>
       <form onSubmit={handleSearchSubmit} className="flex items-center">
@@ -40,5 +40,5 @@ export default function SearchBox() {
           ))}
       </ul>
     </>
-  );
+  )
 }
