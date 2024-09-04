@@ -1,30 +1,30 @@
-import { create } from "zustand";
+import { create } from 'zustand'
 import {
   getWeatherData,
   getCities,
   getForecast,
   getAQIForecast,
-} from "../api/api";
+} from '../api/api'
 
 const useStore = create((set) => ({
   weatherData: null,
   setWeatherData: (weatherData) => set({ weatherData }),
   fetchWeather: async (city, lon, lat) => {
-    const weatherData = await getWeatherData(city);
-    set({ weatherData });
-    const forecast = await getForecast(city);
-    const aqiForecast = await getAQIForecast(lon, lat);
-    return weatherData;
+    const weatherData = await getWeatherData(city)
+    const forecast = await getForecast(city)
+    const aqiForecast = await getAQIForecast(lon, lat)
+    set({ weatherData })
+    return weatherData
   },
-  searchQuery: "",
+  searchQuery: '',
   citiesList: null,
   setSearchQuery: (searchQuery) => set({ searchQuery }),
   setCitiesList: (citiesList) => set({ citiesList }),
   fetchCities: async (searchQuery) => {
-    const citiesList = await getCities(searchQuery);
+    const citiesList = await getCities(searchQuery)
 
-    set({ citiesList });
+    set({ citiesList })
   },
-}));
+}))
 
-export default useStore;
+export default useStore
