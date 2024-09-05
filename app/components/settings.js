@@ -1,14 +1,27 @@
+import React, { useState } from 'react'
+import useStore from '@/utils/store'
 import {
   Sheet,
+  SheetTrigger,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
-  SheetTrigger,
+  SheetDescription,
 } from '@/components/ui/sheet'
 import SettingsIcon from '@/icons/settingsIcon'
 
 export default function SettingsSheet() {
+  const units = useStore((state) => state.units)
+  const setUnits = useStore((state) => state.setUnits)
+  const [isMetric, setIsMetric] = useState(units === 'Fahrenheit')
+
+  const handleToggleUnit = () => {
+    const newUnits = isMetric ? 'metric' : 'imperial'
+    setUnits(newUnits)
+    setIsMetric(!isMetric)
+    console.log('units', units)
+  }
+
   return (
     <Sheet>
       <SheetTrigger>
@@ -21,6 +34,9 @@ export default function SettingsSheet() {
           <SheetTitle>Settings</SheetTitle>
           <SheetDescription>Configure your preferences</SheetDescription>
         </SheetHeader>
+        <button onClick={handleToggleUnit}>
+          Switch to {isMetric ? 'Celsius' : 'Fahrenheit'}
+        </button>
       </SheetContent>
     </Sheet>
   )
