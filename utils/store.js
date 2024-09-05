@@ -10,8 +10,8 @@ const useStore = create((set) => ({
   weatherData: null,
   setWeatherData: (weatherData) => set({ weatherData }),
   fetchWeather: async (city, lon, lat) => {
-    const weatherData = await getWeatherData(city, units)
-    const forecast = await getForecast(city, units)
+    const weatherData = await getWeatherData(city)
+    const forecast = await getForecast(city)
     const aqiForecast = await getAQIForecast(lon, lat)
     set({ weatherData })
     return weatherData
