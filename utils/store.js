@@ -6,15 +6,19 @@ import {
   getAQIForecast,
 } from '../api/api'
 
-const useStore = create((set) => ({
+const useStore = create((set, get) => ({
+  units: 'metric',
+  setUnits: (units) => set({ units }),
+
   weatherData: null,
   setWeatherData: (weatherData) => set({ weatherData }),
   fetchWeather: async (city, lon, lat) => {
-    const weatherData = await getWeatherData(city)
-    const forecast = await getForecast(city)
+    const { units } = get() // Get the current units from the store
+    console.log(units)
+    const weatherData = await getWeatherData(city, units)
+    const forecast = await getForecast(city, units)
     const aqiForecast = await getAQIForecast(lon, lat)
     set({ weatherData })
-    return weatherData
   },
   searchQuery: '',
   citiesList: null,
