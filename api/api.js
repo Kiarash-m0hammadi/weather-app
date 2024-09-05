@@ -19,7 +19,8 @@ async function getCities(query) {
 }
 
 async function getWeatherData(city) {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
+  const units = useStore()
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${'metric'}&appid=${API_KEY}`
 
   try {
     const response = await fetch(url)
@@ -35,7 +36,7 @@ async function getWeatherData(city) {
 }
 
 async function getForecast(city) {
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}`
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${'metric'}&appid=${API_KEY}`
 
   try {
     const response = await fetch(url)

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
-import SearchBox from './searchBox'
-import ShowWeatherData from './showWeatherData'
+import SearchBox from './components/searchBox'
+import ShowWeatherData from './components/showWeatherData'
 import SettingsSheet from './components/settings'
 
 export default function Home() {

@@ -1,5 +1,5 @@
-import useCitySearchHandlers from '../utils/getCities'
-import useWeatherDataFetch from '../utils/getCityData'
+import useCitySearchHandlers from '../../utils/getCities'
+import useWeatherDataFetch from '../../utils/getCityData'
 
 export default function SearchBox() {
   const {

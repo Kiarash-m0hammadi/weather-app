@@ -1,4 +1,4 @@
-import useWeatherDataFetch from '../utils/getCityData'
+import useWeatherDataFetch from '../../utils/getCityData'
 
 export default function ShowWeatherData() {
   const { weatherData } = useWeatherDataFetch()
